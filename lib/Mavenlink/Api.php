@@ -456,15 +456,7 @@ class Api
     {
         $model = $this->getFullClassname($model);
         $parsed_json = json_decode($json, true);
-        try
-        {
-            $entities = $parsed_json[$model::$path];
-        }
-        catch(Exception $e)
-        {
-            print_r($parsed_json);
-            throw $e;
-        }
+        $entities = $parsed_json[$model::$path];
         $collection = array();
         foreach($entities as $entity)
         {
